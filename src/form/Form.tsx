@@ -57,7 +57,7 @@ export default function QuoteForm(props: Props) {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="mb-4">
+    <Form onSubmit={handleSubmit} className="mb-4" data-testid="quote-form">
       <div className="form-body">
         <Form.Row>
           <Form.Group as={Col} controlId="loan-size">
