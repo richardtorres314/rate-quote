@@ -87,37 +87,33 @@ export default function QuoteForm(props: Props) {
             </Row>
           </Form.Group>
         </Form.Row>
-        <Row>
-          <Col>
-            <Form.Group controlId="credit-score">
-              <Row noGutters>
-                <Col className="d-flex align-items-center justify-content-end mr-2">
-                  <Form.Label className="mb-0">Credit Score</Form.Label>
-                </Col>
-                <Col>
-                  <Form.Control required onChange={(e: ChangeEvent<HTMLInputElement>) => handleInput('creditScore', e.currentTarget.value)} />
-                </Col>
-              </Row>
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group controlId="occupancy">
-              <Row noGutters>
-                <Col className="d-flex align-items-center justify-content-end mr-2">
-                  <Form.Label className="mb-0">Occupancy</Form.Label>
-                </Col>
-                <Col>
-                  <Form.Control required as="select" onChange={(e: ChangeEvent<HTMLSelectElement>) => handleInput('occupancy', e.currentTarget.value)}>
-                    <option value="">Select an occupancy</option>
-                    <option value="Primary">Primary</option>
-                    <option value="Secondary">Secondary</option>
-                    <option value="Investment">Investment</option>
-                  </Form.Control>
-                </Col>
-              </Row>
-            </Form.Group>
-          </Col>
-        </Row>
+        <Form.Row>
+          <Form.Group as={Col} controlId="credit-score">
+            <Row noGutters>
+              <Col className="d-flex align-items-center justify-content-end mr-2">
+                <Form.Label className="mb-0">Credit Score</Form.Label>
+              </Col>
+              <Col>
+                <Form.Control required onChange={(e: ChangeEvent<HTMLInputElement>) => handleInput('creditScore', e.currentTarget.value)} />
+              </Col>
+            </Row>
+          </Form.Group>
+          <Form.Group as={Col} controlId="occupancy">
+            <Row noGutters>
+              <Col className="d-flex align-items-center justify-content-end mr-2">
+                <Form.Label className="mb-0">Occupancy</Form.Label>
+              </Col>
+              <Col>
+                <Form.Control required as="select" onChange={(e: ChangeEvent<HTMLSelectElement>) => handleInput('occupancy', e.currentTarget.value)}>
+                  <option value="">Select an occupancy</option>
+                  <option value="Primary">Primary</option>
+                  <option value="Secondary">Secondary</option>
+                  <option value="Investment">Investment</option>
+                </Form.Control>
+              </Col>
+            </Row>
+          </Form.Group>
+        </Form.Row>
       </div>
       <div className="form-footer text-right">
         <Button type="submit" className="form__quote-button">Quote Rates</Button>

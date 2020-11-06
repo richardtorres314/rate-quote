@@ -10,7 +10,7 @@ interface Props {
 
 export default function QuoteTable(props: Props) {
   return (
-    <Table className="border" data-testid="quote-table">
+    <Table className="border" data-testid="quote-table" responsive>
       <thead>
         <tr>
           <th>Lender</th>
