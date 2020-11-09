@@ -24,7 +24,7 @@ export default function QuoteTable(props: Props) {
       <tbody>
         {props.rateQuotes.map((rateQuote, index) => (
           <Fragment key={`rate-quote-${index}`}>
-            <tr>
+            <tr data-testid={`results-table-row-${index}`}>
               <td>{rateQuote.lenderName}</td>
               <td>{rateQuote.loanType}</td>
               <td>{rateQuote.interestRate}%</td>
@@ -36,7 +36,7 @@ export default function QuoteTable(props: Props) {
         ))}
         {
           props.loading === true &&
-          <tr>
+          <tr data-testid="loading-table">
             <td colSpan={6} className="text-center p-4 text-muted">
               <Spinner animation="border" role="status">
                 <span className="sr-only">Loading&hellip;</span>
@@ -47,7 +47,7 @@ export default function QuoteTable(props: Props) {
         {
           props.rateQuotes.length === 0 &&
           props.loading === false &&
-          <tr>
+          <tr data-testid="initial-table">
             <td colSpan={6} className="text-center p-4 text-muted">
               <p className="mb-0">Complete the form above to see rates.</p>
             </td>
