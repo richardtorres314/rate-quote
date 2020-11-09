@@ -8,7 +8,7 @@ interface Props {
   listQuote: (quotes: RateQuote[]) => void;
 }
 
-interface RateQuery {
+export interface RateQuery {
   loanSize: string;
   creditScore: string;
   propertyType: string;
@@ -66,7 +66,11 @@ export default function QuoteForm(props: Props) {
                 <Form.Label className="mb-0">Loan Size</Form.Label>
               </Col>
               <Col>
-                <Form.Control required onChange={(e: ChangeEvent<HTMLInputElement>) => handleInput('loanSize', e.currentTarget.value)} />
+                <Form.Control
+                  data-testid="loan-size"
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => handleInput('loanSize', e.currentTarget.value)}
+                  required
+                />
               </Col>
             </Row>
           </Form.Group>
@@ -76,7 +80,12 @@ export default function QuoteForm(props: Props) {
                 <Form.Label className="mb-0">Property Type</Form.Label>
               </Col>
               <Col>
-                <Form.Control required as="select" onChange={(e: ChangeEvent<HTMLSelectElement>) => handleInput('propertyType', e.currentTarget.value)}>
+                <Form.Control
+                  as="select"
+                  onChange={(e: ChangeEvent<HTMLSelectElement>) => handleInput('propertyType', e.currentTarget.value)}
+                  required
+                  data-testid="property-type"
+                >
                   <option value="">Select a property type</option>
                   <option value="SingleFamily">Single Family</option>
                   <option value="Condo">Condo</option>
@@ -94,7 +103,11 @@ export default function QuoteForm(props: Props) {
                 <Form.Label className="mb-0">Credit Score</Form.Label>
               </Col>
               <Col>
-                <Form.Control required onChange={(e: ChangeEvent<HTMLInputElement>) => handleInput('creditScore', e.currentTarget.value)} />
+                <Form.Control
+                  data-testid="credit-score"
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => handleInput('creditScore', e.currentTarget.value)}
+                  required
+                />
               </Col>
             </Row>
           </Form.Group>
@@ -104,7 +117,12 @@ export default function QuoteForm(props: Props) {
                 <Form.Label className="mb-0">Occupancy</Form.Label>
               </Col>
               <Col>
-                <Form.Control required as="select" onChange={(e: ChangeEvent<HTMLSelectElement>) => handleInput('occupancy', e.currentTarget.value)}>
+                <Form.Control
+                  as="select"
+                  data-testid="occupancy"
+                  onChange={(e: ChangeEvent<HTMLSelectElement>) => handleInput('occupancy', e.currentTarget.value)}
+                  required
+                >
                   <option value="">Select an occupancy</option>
                   <option value="Primary">Primary</option>
                   <option value="Secondary">Secondary</option>
@@ -116,7 +134,7 @@ export default function QuoteForm(props: Props) {
         </Form.Row>
       </div>
       <div className="form-footer text-right">
-        <Button type="submit" className="form__quote-button">Quote Rates</Button>
+        <Button data-testid="button" type="submit" className="form__quote-button">Quote Rates</Button>
       </div>
     </Form>
   );

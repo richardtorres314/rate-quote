@@ -9,18 +9,16 @@ import rootReducer from './redux';
 
 const store = createStore(rootReducer, {});
 
-describe('app tests', () => {
-  it('should render the button', () => {
-    render(
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
+it('should render the button', () => {
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
 
-    const form = screen.getByTestId('quote-form');
-    expect(form).toBeDefined();
+  const form = screen.getByTestId('quote-form');
+  expect(form).toBeDefined();
 
-    const table = screen.getByTestId('quote-table');
-    expect(table).toBeDefined();
-  });
+  const table = screen.getByTestId('quote-table');
+  expect(table).toBeDefined();
 });
